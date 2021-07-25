@@ -42,7 +42,7 @@ const CreateForm = ({formData, setFormData}) => {
 
     const onItemUpdate = useCallback((item, index) => {
         const newFormData = [...demoData];
-        newFormData[index].options.items[item.index] = ({label: item.value, value: item.value});
+        newFormData[index].options.items[item.index] = ({label: item.label, value: item.value});
         setDemoData(newFormData);
     }, [demoData, setDemoData]);
 

@@ -20,7 +20,7 @@ const SwitchField = ({onUpdate, onItemUpdate}) => {
                 {Array.from({length: 10}).map((_, i) => <Select.Option key={i} value={i + 1}>{i + 1}</Select.Option>)}
             </Select>
             {Array.from({length: numOfItems}).map((_, i) => (
-                <StyledInput key={i} className='req_input' placeholder={`Please enter item ${i + 1}`} onChange={({target: {value}}) => onItemUpdate({index: i, value})} />
+                <StyledInput key={i} className='req_input' placeholder={`Please enter item ${i + 1}`} onChange={({target: {value}}) => onItemUpdate({index: i, label: value, value: i})} />
             ))}
         </Container>
     )
