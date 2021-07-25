@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import styled from 'styled-components';
+import {Tabs} from 'antd';
+import CreateForm from './components/CreateForm';
+import DisplayForm from './components/DisplayForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+`;
+
+const Title = styled.div`
+  font-size: 36px;
+  font-weight: bold;
+  align-self: center;
+`;
+
+const App = () => {
+    const [formData, setFormData] = useState([]);
+    return (
+        <Container>
+            <Title>Difftone Home Assignment</Title>
+            <Tabs defaultActiveKey="1">
+                <Tabs.TabPane tab="Create form" key="1">
+                    <CreateForm {...{formData, setFormData}} />
+                </Tabs.TabPane>
+                <Tabs.TabPane tab="Display form" key="2">
+                    <DisplayForm {...{formData}} />
+                </Tabs.TabPane>
+            </Tabs>
+        </Container>
+    )
 }
-
 export default App;
